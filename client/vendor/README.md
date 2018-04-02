@@ -17,4 +17,4 @@ app.wxss中引用 @import "vendor/font/font-awesome3.0.wxss";
    ```bash
    <icon class="fa fa-图标名称"></icon>
    ```
-图标名称点击[这里]((http://www.bootcss.com/p/font-awesome/))查看
+图标名称点击[这里](http://www.bootcss.com/p/font-awesome/)查看
