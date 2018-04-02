@@ -1,0 +1,21 @@
+<!--pages/newsList/newsList.wxml-->
+<view class='content' hidden='{{index_is_show?false:true}}'>
+    <!-- 小类展示(若有) -->
+    <view class="top">
+        <scroll-view class="scroll-view_H" scroll-x style="width: 96%;">
+            <block wx:for="{{nav}}" wx:key="nav">
+                <view class="mtag {{id==item.term_id ? 'active' : ''}}" bindtap='cate' id="{{item.term_id}}"> {{item.name}}</view>
+            </block>
+        </scroll-view>
+    </view>
+    <!-- 引入资讯列表模板 -->
+    <view class='cate'>
+        <import src="../../template/newsList.wxml"/>  
+        <template is="newsList" data="{{news}}"/>
+    </view>
+    <view class='none' hidden='{{page_is_show?false:true}}'>没有了~~</view>
+    <import src="../../template/footer.wxml"/>  
+    <template is="footer" data="{{footer}}"/>
+</view>
+<import src="../../template/qxalert.wxml"/>  
+<template is="qxalert" data="{{alert}}"/>

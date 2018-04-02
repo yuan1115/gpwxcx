@@ -1,0 +1,51 @@
+{
+    "pages":[
+        "pages/index/index",
+        "pages/find/find",
+        "pages/article/article",
+        "pages/user/user",
+        "pages/newsList/newsList",
+        "pages/detail/detail",        
+        "pages/search/search",
+        "pages/qa/qa", 
+        "pages/webUrl/webUrl",
+        "pages/about/about" 
+    ],
+    "window":{
+        "backgroundColor":"#fff",
+        "backgroundTextStyle":"light",
+        "navigationBarBackgroundColor": "#669ef9",
+        "navigationBarTitleText": "牛人追踪 | 3G手机股评网",
+        "navigationBarTextStyle":"white"
+    },
+    "tabBar": {
+        "selectedColor": "#669ef9",
+        "borderStyle": "white",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "股评网",
+                "iconPath": "static/image/home1.png",
+                "selectedIconPath": "static/image/home.png"
+            },
+            {
+                "pagePath": "pages/find/find",
+                "text": "发现",
+                "iconPath": "static/image/search1.png",
+                "selectedIconPath": "static/image/search.png"
+            },
+            {
+                "pagePath": "pages/qa/qa",
+                "text": "活动",
+                "iconPath": "static/image/gift1.png",
+                "selectedIconPath": "static/image/gift.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "static/image/me1.png",
+                "selectedIconPath": "static/image/me.png"
+            }
+        ]
+    }
+}

@@ -1,0 +1,50 @@
+<!-- pages/index/index -->
+<!--index.wxml-->
+<view class="content" hidden='{{index_is_show?false:true}}'>
+  <!-- 这里是轮播位 -->
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-color="#fff" indicator-active-color="#000" circular="{{circular}}">
+    <block wx:for="{{imgUrls}}" wx:key="bannr">
+      <swiper-item>
+        <view class='banner' bindtap='newsDetail' data-id="{{item.id}}">
+          <image src="{{item.imgUrl}}" class="slide-image" width="100%" height="150" />
+          <view class='bannarContent ellipsis'>{{item.post_title}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view style="height:25rpx"></view>
+  <!-- 热点词汇 -->
+  <view class="nav">
+    <block wx:for="{{nav_menu}}" wx:key="hot">
+       <view class="hot" bindtap='hotList' data-id='cate{{index}}'>
+          <text class="{{scroll=='cate'+index?'active':''}}">{{item.post_title}}</text>
+       </view> 
+    </block>
+    <view class='clear'></view>
+  </view>
+  <!-- 分类资讯 -->
+  <scroll-view scroll-y style="height:1000rpx" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{scroll}}" scroll-top="0">
+    <block wx:for="{{nav_menu}}" wx:key="cateNews">
+      <view class='cate' id="cate{{index}}">
+          <view class='cateName' bindtap='newsList'>
+              <view class='leftline'></view>
+              <view class='catename'>{{item.post_title}}</view>
+              <view class='rightline'></view>
+          </view>
+          <!-- 引入资讯列表模板 -->
+          <import src="../../template/newsList.wxml"/>  
+          <template is="newsList" data="{{...item}}"/>
+
+          <view class='newsmore' bindtap='list' data-id="{{item.term_id}}">MORE>></view>
+      </view>
+    </block>
+    <import src="../../template/footer.wxml"/>  
+    <view>
+        <template is="footer" data="{{...footer}}"/>
+    </view>
+  </scroll-view>
+</view>
+<import src="../../template/qxalert.wxml"/>  
+<template is="qxalert" data="{{alert}}"/>
+
+

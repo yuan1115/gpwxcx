@@ -1,0 +1,32 @@
+<!--pages/search/search.wxml-->
+<view class='content'>
+    <view class="ser">
+        <form  bindsubmit="formSubmit">
+            <view class="nav">
+                <icon type="search" size="18" />
+                <input placeholder='请输入搜索关键字'  placeholder-style="font-size:28rpx" name='key' style='font-size:28rpx' bindinput='keyscliece'/>
+                <view class="clear"></view>
+            </view>
+            <button form-type="submit" class="sous">搜 索</button> 
+            <navigator open-type="navigateBack" delta="1" class="qx">取 消</navigator>
+        </form>
+    </view>
+    <!-- 历史搜索 -->
+    <view class="history" hidden="{{key == ''?false:true}}">
+        <view style="margin-bottom:20rpx;font-size:32rpx" class='top'>
+            历史搜索
+            <text bindtap='removekey'>清除</text>
+        </view>
+        <view class='historyKeys'> 
+            <block wx:for="{{keys}}"  wx:key="historysel">
+                <view bindtap='historysel' data-key="{{item}}">{{item}}</view>
+            </block>
+        </view>
+    </view>
+    <!-- 引入资讯列表模板 -->
+    <view class='cate' hidden="{{key == ''?true:false}}">
+        <import src="../../template/newsList.wxml"/>  
+        <template is="newsList" data="{{news}}"/>
+        <view class='none'>没有了~~</view>
+    </view> 
+</view>

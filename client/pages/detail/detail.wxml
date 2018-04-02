@@ -1,0 +1,66 @@
+<!--pages/detail/detail.wxml-->
+<view class='content' hidden='{{pageIsShow?false:true}}'>
+    <view class='article-part'>
+        <view class='title'>{{newsdetail.post_title}}</view>
+        <view class='times'>{{newsdetail.post_date}}</view>
+        <view class='excerpt'>{{newsdetail.post_excerpt}}</view>
+        <view class="article">
+            <import src="../../vendor/wxParse/wxParse.wxml"/>
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+    </view>
+    <view class='comment-part'>
+        <view class='comment-top'>
+            <text class='line'></text>
+            <text>参与讨论</text>
+        </view> 
+        <form bindsubmit="bindFormSubmit">
+            <textarea placeholder="你怎么看..." name="textarea" placeholder-style="color:#999;font-size:28rpx"/>
+            <view class='comment-middle'>
+                <icon class='fa fa-user'></icon>
+                <text>要发表评论，请先登录</text>
+                <text>{{username}}</text>
+                <button form-type="submit"> 提交评论 </button> 
+            </view>
+        </form> 
+        <view class='comment-top'>
+            <text class='line'></text>
+            <text>最新评论</text>
+        </view> 
+        <block wx:for="{{comments}}" wx:key="comments">   
+            <view class='newComment'>
+                <view>
+                    <text>{{item.comment_author}}</text>
+                    <text class='times'>{{item.comment_date}}</text>
+                </view>
+                <view class='commentContent'>
+                    {{item.comment_content}}
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class='aboutArt'>
+        <view class='comment-top'>
+            <text class='line'></text>
+            <text>相关文章</text>
+        </view> 
+        <!-- 引入资讯列表模板 -->
+        <view class='cate'>
+            <import src="../../template/newsList.wxml"/>  
+            <template is="newsList" data="{{news}}"/>
+        </view> 
+    </view>
+    <!-- 公共底部 -->
+    <import src="../../template/footer.wxml"/>  
+    <template is="footer" data="{{footer}}"/>
+</view>
+<view class='kf' hidden='{{alert?false:true}}'>
+    <view class="form">
+        <view class='top'>温馨提示：</view>
+        <view>请求失败，请联系客服。</view>
+        <view>
+            <button class='qx' bindtap='qx'>取消</button>
+            <button class='qd' open-type='contact'>确定</button>
+        </view>
+    </view>
+</view>

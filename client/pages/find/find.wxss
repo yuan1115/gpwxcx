@@ -1,0 +1,15 @@
+/* pages/find/find.wxss */
+.ser{width:100%;margin: 0 auto;padding-bottom:40rpx}
+.nav{margin:0 0 0 40rpx;width: 90%;background: #fff;float: left;border-radius: 30rpx;border-top-left-radius: 30rpx;border:1px solid #ddd;margin-top:30rpx}
+.nav icon{float: left;margin:15rpx 20rpx}
+.nav .tips{float: left;width:80%;height:1.7rem;line-height: 1.7rem;font-size:28rpx;color:#666}
+
+.bigCate{padding:15rpx;font-size:32rpx;height:auto;overflow-y: hidden;border-bottom: 1px solid #ddd}
+.line{padding:5rpx;background: #38f;margin-right:15rpx}
+.middle{font-weight: 600}
+.right{float: right;font-size: 26rpx;background:#669ef9;padding: 8rpx 15rpx;color: #fff;border-radius:30rpx}
+.smallCate{padding:15rpx;}
+.block{width:31%;float: left;margin:30rpx 1.1%;}
+.block image{width: 100%}
+.sname{font-size:28rpx;text-align: center}
+

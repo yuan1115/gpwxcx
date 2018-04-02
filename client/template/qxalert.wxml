@@ -1,0 +1,12 @@
+<template name="qxalert">
+<view class='kf' hidden='{{alert?false:true}}'>
+    <view class="form">
+        <view class='top'>温馨提示：</view>
+        <view>请求失败，请联系客服。</view>
+        <view>
+            <button class='qx' bindtap='qx'>取消</button>
+            <button class='qd' open-type='contact'>确定</button>
+        </view>
+    </view>
+</view>
+</template>

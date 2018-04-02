@@ -1,0 +1,5 @@
+/* pages/about/about.wxss */
+.content{
+    padding:20rpx;
+    font-size: 32rpx
+}

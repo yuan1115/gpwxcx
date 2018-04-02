@@ -1,0 +1,6 @@
+/* pages/newsList/newsList.wxss */
+.top{background: #669;}
+.scroll-view_H{white-space: nowrap;color: #fff;font-size:32rpx}
+.mtag{display: inline-block;width: 33.3%;text-align: center;border-radius: 10rpx;padding:15rpx 0;}
+.active{border-bottom:3px solid #669ef6;}
+.none{font-size:28rpx;color: #999;text-align: center;margin-bottom:20rpx}

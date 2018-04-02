@@ -1,0 +1,16 @@
+<!-- 这是公共底部模板 -->
+<template name="footer">
+  <view class='footer'>
+      <view class='sections'>
+          <view>友情链接</view>
+          <view class='yqlink'>
+              <view>新华网</view>
+              <view>人民网</view>
+              <view>手机评估网</view>
+          </view>
+      </view>
+      <view class='bottom'>
+          Copyright © 2018 3ggpw.cn. All Rights Reserved. 手机股评网版权所有 湘ICP备08003812号
+      </view>
+  </view>
+</template>

@@ -1,0 +1,4 @@
+<!--pages/about/about.wxml-->
+<view class='content'>
+    网站介绍，加盟，广告投放
+</view>

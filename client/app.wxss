@@ -1,0 +1,88 @@
+/**app.wxss**/
+@import "vendor/font/font-awesome3.0.wxss";
+@import "vendor/wxParse/wxParse.wxss";
+.clear{ clear:both}
+.ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+/* 资讯列表样式 */
+.cate{
+  padding: 20rpx 15rpx
+}
+.news{
+  padding: 25rpx 0;
+  border-bottom: 1px #f6f6f6 solid;
+  max-height: 230rpx
+}
+.cate .content{
+  font-size:28rpx;
+  float: left;
+  width: 58%;
+}
+.cate .img{
+  float: right;
+  width:40%;
+  max-height:230rpx;
+  border-radius: 15rpx 
+}
+.cate .img image{
+  width: 100%;
+  max-height:220rpx
+}
+.cate .ellipsis{
+   font-weight: 600; 
+  font-size:30rpx;
+  margin-bottom: 15rpx
+}
+.cate .mintroduce{
+  min-height:160rpx;
+  overflow-y: hidden;
+  line-height: 38rpx;
+  color: #666;
+  margin-bottom: 15rpx 
+}
+.bottom{
+  color: #999;
+}
+.detail{
+  float: right;
+  margin-right: 15rpx;
+  background: #669ef9;
+  color: #fff;
+  border-radius: 30rpx;
+  padding: 5rpx 20rpx
+}
+/* 公共底部样式 */
+.footer{
+  background: #2d3237; 
+  height: auto;
+  width: 100%;
+  font-size:32rpx;
+}
+.footer .sections{
+  margin: 0 auto;
+  padding: 80rpx 30rpx;
+  font-weight: 600;
+  color: #fff;
+  border-bottom: #3B424A solid 1px
+}
+.footer .yqlink{
+  padding-top:30rpx;
+  font-size:28rpx;
+  font-weight: 400
+}
+.footer .yqlink view{
+  float: left;
+  width: 33%;
+  text-align: center
+}
+.footer .bottom{
+  padding: 30rpx;
+  font-size:24rpx;
+  color: #666;
+  line-height: 46rpx
+}
+/* error弹窗 */
+.kf{width: 100%;height: 100%;position: absolute;top: 0;z-index: 999;background: rgba(0, 0, 0, 0.2)}
+.kf .form{width:55%;background: #fff;margin:40% auto;padding: 30rpx 40rpx;font-size:30rpx;border-radius: 20rpx;position:relative}
+.kf .form .top{padding-bottom: 20rpx;font-size: 36rpx}
+.kf .form button{float: left;width: 40%;margin: 30rpx 5% 0 5%;height:auto;border:0;background:#4285f4;border-radius: 10rpx;color: #fff;line-height: 60rpx;font-size: 30rpx}
+.kf .form .qx{background: #f0f0f0;border: 0;color: #000}

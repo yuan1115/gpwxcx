@@ -1,0 +1,32 @@
+<!--pages/find/find.wxml-->
+<view class='content' hidden='{{index_is_show?false:true}}'>
+    <!-- 搜索框 -->
+    <view class="ser" bindtap='search'>
+        <view class="nav">
+            <icon type="search" size="18" />
+            <view class='tips'>请输入搜索关键字</view>
+            <view class="clear"></view>
+        </view>
+    </view>
+    <!-- 资讯栏目 -->
+    <block wx:for="{{newsCate}}" wx:key="newsCate">
+        <view class='cate' wx:if="{{item.parent==0}}">
+            <view class='bigCate'>
+                <text class='line'></text>
+                <text class='middle'>{{item.post_title}}</text>
+                <text class='right' bindtap='list' data-id="{{item.term_id}}">MORE>></text>
+            </view>
+            <view class="smallCate">
+                <block wx:for="{{newsCate}}" wx:key="cate" wx:for-item="v">
+                    <view class='block' wx:if="{{v.parent==item.term_id}}" bindtap='list' data-id="{{v.term_id}}">
+                        <image src='{{item.imgUrl}}' mode="widthFix"></image>
+                        <view class='sname'>{{v.post_title}}</view>
+                    </view> 
+                </block>
+            </view>
+            
+        </view>
+    </block>
+</view>
+<import src="../../template/qxalert.wxml"/>  
+<template is="qxalert" data="{{alert}}"/>
