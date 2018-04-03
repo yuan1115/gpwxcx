@@ -64,3 +64,4 @@
         </view>
     </view>
 </view>
+<image src='../../static/image/toTop.png' class='toTop' hidden='{{toTop?false:true}}' bindtap='toTop'></image>

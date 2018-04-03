@@ -19,7 +19,7 @@
             <view class="smallCate">
                 <block wx:for="{{newsCate}}" wx:key="cate" wx:for-item="v">
                     <view class='block' wx:if="{{v.parent==item.term_id}}" bindtap='list' data-id="{{v.term_id}}">
-                        <image src='{{item.imgUrl}}' mode="widthFix"></image>
+                        <image src='{{v.option_term.imgurl}}' style="height:230rpx"></image>
                         <view class='sname'>{{v.post_title}}</view>
                     </view> 
                 </block>

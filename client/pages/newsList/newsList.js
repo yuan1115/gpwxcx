@@ -15,7 +15,8 @@ Page({
         page_is_show : 0,
         index_is_show : 0,
         nav:[],
-        news: []
+        news: [],
+        toTop : 0
   },
 
     /**
@@ -59,7 +60,6 @@ Page({
             })
             return false
         }
-        console.log(page)
         app.ajax({ url: url, method: "POST",data:data}, function (res) {
             var len = action.count(res.data)
             if (len == 0) {
@@ -141,6 +141,27 @@ Page({
     newsDetail: function (e) {
         wx.navigateTo({
             url: '../detail/detail?id='+e.currentTarget.dataset.id
+        })
+    },
+    /**
+ * 返回顶部
+ */
+    toTop: function () {
+        wx.pageScrollTo({
+            scrollTop: 0,
+        })
+    },
+    /**
+     *监测滚动 
+     */
+    onPageScroll: function (e) {
+        if (e.scrollTop > 200) {
+            var toTop = 1;
+        } else {
+            var toTop = 0;
+        }
+        this.setData({
+            toTop: toTop
         })
     }
 })

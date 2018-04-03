@@ -1,10 +1,10 @@
 <!--pages/search/search.wxml-->
-<view class='content'>
+<view class='page'>
     <view class="ser">
         <form  bindsubmit="formSubmit">
             <view class="nav">
                 <icon type="search" size="18" />
-                <input placeholder='请输入搜索关键字'  placeholder-style="font-size:28rpx" name='key' style='font-size:28rpx' bindinput='keyscliece'/>
+                <input placeholder='请输入搜索关键字'  placeholder-style="font-size:28rpx" name='key' style='font-size:28rpx' bindinput='keyscliece' value="{{key}}"/>
                 <view class="clear"></view>
             </view>
             <button form-type="submit" class="sous">搜 索</button> 
@@ -27,6 +27,11 @@
     <view class='cate' hidden="{{key == ''?true:false}}">
         <import src="../../template/newsList.wxml"/>  
         <template is="newsList" data="{{news}}"/>
-        <view class='none'>没有了~~</view>
+        <view class='none' hidden='{{page_is_show?false:true}}'>没有了~~</view>
     </view> 
 </view>
+<view style="{{footerstyle}}">
+    <import src="../../template/footer.wxml"/>  
+    <template is="footer" data="{{footer}}"/>
+</view>
+<image src='../../static/image/toTop.png' class='toTop' hidden='{{toTop?false:true}}' bindtap='toTop'></image>

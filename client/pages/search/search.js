@@ -9,30 +9,13 @@ Page({
    */
   data: {
       key : '',
+      toTop : 0,
       keys: wx.getStorageSync("sel_keys"),
-      news: [
-          {
-              title: "【严为民】55亿罚款吓傻游资！",
-              mintroduce: "目前这个市场调整原因有这么几个，中午基本上说全了，但是差了一个。，中午基本上说全了，但是差了一个。，中午基本上说全了，但是差了一个。",
-              createTime: "2018-3-14 06:28",
-              id: 1332,
-              img: "http://dev.xiaoyukeji.cn/wp-content/uploads/2018/03/严为民广告位-1-e1520839741828.jpg"
-          },
-          {
-              title: "【严为民】55亿罚款吓傻游资！",
-              mintroduce: "目前这个市场调整原因有这么几个，中午基本上说全了，但是差了一个。",
-              createTime: "2018-3-14 06:28",
-              id: 1332,
-              img: "http://dev.xiaoyukeji.cn/wp-content/uploads/2018/03/严为民广告位-1-e1520839741828.jpg"
-          },
-          {
-              title: "【严为民】55亿罚款吓傻游资！",
-              mintroduce: "目前这个市场调整原因有这么几个，中午基本上说全了，但是差了一个。",
-              createTime: "2018-3-14 06:28",
-              id: 1332,
-              img: "http://dev.xiaoyukeji.cn/wp-content/uploads/2018/03/严为民广告位-1-e1520839741828.jpg"
-          }
-      ]
+      news: [],
+      page: 1,
+      pages: 0,
+      page_is_show: 0,
+      footerstyle: "position: fixed;bottom:0",
   },
 
   /**
@@ -81,7 +64,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      if(this.data.key){
+          this.getData(this.data.key)      
+      }
   },
 
   /**
@@ -102,14 +87,7 @@ Page({
   //历史搜索
   historysel: function (e) {
       var key = e.currentTarget.dataset.key
-      var that = this
-      var data = { key: key, page: 1, length: 10, openid: app.globalData.openid }
-      this.getData(data, function (e) {
-          that.setData({
-              goods: e.data,
-              key: key
-          })
-      })
+      this.getData(key)
   },
   removekey: function () {
       //这里要加入清除搜索关键的缓存
@@ -142,8 +120,74 @@ Page({
       wx.setStorageSync("sel_keys", newkeys)
       this.setData({
           keys:newkeys,
-          key: key
+          key: key,
+          page : 1,
+          pages : 0,
       })
-
+    //请求数据
+    this.getData(key)
   },
+  /**
+ *获取数据 
+ */
+  getData: function (key) {
+      var url = "articleList?adminSrcKey=YWRtaW5faGVsbG8=&keyword=" + key
+      var that = this
+      var page = that.data.page
+      var news = that.data.news
+      var data = { page: page }
+      if (that.data.pages == page) {
+          this.setData({
+              page_is_show: 1
+          })
+          return false
+      }
+      app.ajax({ url: url, method: "POST", data: data }, function (res) {
+          var len = action.count(res.data)
+          if (len == 0) {
+              var pages = page
+          } else {
+              page++
+              var pages = 0
+          }
+          news = action.push(news, res.data)
+          that.setData({
+              page: page,
+              pages: pages,
+              news: news,
+              key : key,
+              footerstyle : ''
+          })
+          wx.hideLoading()
+      })
+  },
+  /**
+   *跳转详情页 
+   */
+  newsDetail : function(e){
+      wx.navigateTo({
+          url: '../detail/detail?id=' + e.currentTarget.dataset.id,
+      })
+  },
+  /**
+   * 返回顶部
+   */
+  toTop:function(){
+      wx.pageScrollTo({
+          scrollTop: 0,
+      })
+  },
+  /**
+   *监测滚动 
+   */
+  onPageScroll:function(e){
+      if(e.scrollTop>200){
+          var toTop = 1;
+      }else{
+          var toTop = 0;
+      }
+      this.setData({
+          toTop : toTop
+      })
+  }
 })

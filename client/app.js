@@ -55,7 +55,7 @@ App({
         } 
         alert.wxload({title:'加载中...'},function(){})
         wx.request({
-            url: 'http://127.0.0.1/gpwApi/index/' + pdata.url,
+            url: 'http://127.0.0.1/rycs/gpwApi/index/' + pdata.url,
             method: pdata.method ? pdata.method : "GET",
             data: postdata,
             header: {

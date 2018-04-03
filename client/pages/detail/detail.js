@@ -20,7 +20,8 @@ Page({
         newsdetail : [],
         alert : 0,
         news: [],
-        comments : []
+        comments : [],
+        toTop : 0
     },
 
     /**
@@ -119,6 +120,27 @@ Page({
         var that = this
         this.setData({
             alert : !that.data.alert
+        })
+    },
+    /**
+* 返回顶部
+*/
+    toTop: function () {
+        wx.pageScrollTo({
+            scrollTop: 0,
+        })
+    },
+    /**
+     *监测滚动 
+     */
+    onPageScroll: function (e) {
+        if (e.scrollTop > 200) {
+            var toTop = 1;
+        } else {
+            var toTop = 0;
+        }
+        this.setData({
+            toTop: toTop
         })
     }
 })

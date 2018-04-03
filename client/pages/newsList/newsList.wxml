@@ -19,3 +19,4 @@
 </view>
 <import src="../../template/qxalert.wxml"/>  
 <template is="qxalert" data="{{alert}}"/>
+<image src='../../static/image/toTop.png' class='toTop' hidden='{{toTop?false:true}}' bindtap='toTop'></image>
