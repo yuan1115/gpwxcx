@@ -6,7 +6,7 @@
         <view class='excerpt'>{{newsdetail.post_excerpt}}</view>
         <view class="article">
             <import src="../../vendor/wxParse/wxParse.wxml"/>
-            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+            <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
         </view>
     </view>
     <view class='comment-part'>
@@ -16,11 +16,27 @@
         </view> 
         <form bindsubmit="bindFormSubmit">
             <textarea placeholder="你怎么看..." name="textarea" placeholder-style="color:#999;font-size:28rpx"/>
-            <view class='comment-middle'>
+            <view class='comment-middle' hidden='{{code?true:false}}'>
                 <icon class='fa fa-user'></icon>
-                <text>要发表评论，请先登录</text>
+                <text bindtap='bindtelshow'>绑定手机号享受无限评论！</text>
                 <text>{{username}}</text>
-                <button form-type="submit"> 提交评论 </button> 
+                <button bindtap='code'> 提交评论 </button> 
+            </view>
+            <view class="code" hidden='{{code?false:true}}'>
+                <view class='title'>
+                    <text>非注册会员每天最多评论10条</text>
+                    <text style="float:right;color:#669ef9" bindtap='bindtelshow'>立即注册</text>
+                </view>
+                <view class="codemsg">
+                    <view>
+                        <text>{{a}}</text>
+                        <text>+</text>
+                        <text>{{b}}</text>
+                        <text>=</text>
+                    </view>
+                    <input name="c" placeholder='?'></input>
+                    <button form-type="submit">确定</button>    
+                </view>
             </view>
         </form> 
         <view class='comment-top'>

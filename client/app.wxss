@@ -88,3 +88,53 @@
 .kf .form .qx{background: #f0f0f0;border: 0;color: #000}
 /* 返回顶部 */
 .toTop{position: fixed;right:10rpx;bottom:20%;width: 100rpx;height: 100rpx}
+/* 绑定手机号模板样式 */
+.brandTel{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.2)
+}
+.brandTel .form{
+    width:70%;
+    background: #fff;
+    margin:35% auto;
+    padding: 30rpx 40rpx;
+    font-size: 28rpx;
+    border-radius: 20rpx;
+    position: relative
+}
+.brandTel .form .top{
+    padding-bottom: 20rpx;
+    font-size: 32rpx
+}
+.brandTel .form icon{
+   float: right;
+   position: absolute;
+   top:15rpx;
+   right:15rpx;
+}
+.brandTel .form input{
+    border: 1px solid #ddd;
+    padding: 8rpx 20rpx;
+    margin-bottom: 20rpx
+}
+.brandTel .code .left{
+    margin-right:20rpx;
+    float: left;
+    width: 60%
+}
+.brandTel .code .right{
+    border: 1px solid #669ef9;
+    padding: 17rpx 20rpx;
+    color: #669ef9;
+    text-align: center
+}
+.brandTel .form button{
+    background: #666999;
+    color: #fff;
+    margin:20rpx 0;
+    line-height: 2
+}

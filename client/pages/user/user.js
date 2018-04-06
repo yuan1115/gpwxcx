@@ -8,8 +8,8 @@ Page({
     data: {
         brandTelBnt: 0,  //绑定手机号按钮
         isBrandTel : 0,  //是否绑定手机号
-
-
+        userInfo : '',
+        hasUserInfo :false
     },
 
     /**
@@ -91,20 +91,23 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        console.log(1)
     },
     setting:function(){
-        console.log(1)
-        wx.openSetting({
-            success: (res) => {
-                /*
-                 * res.authSetting = {
-                 *   "scope.userInfo": true,
-                 *   "scope.userLocation": true
-                 * }
-                 */
-            }
-        })
+        if (this.data.userInfo){
+
+        }else{
+            wx.openSetting({
+                success: (res) => {
+                    /*
+                     * res.authSetting = {
+                     *   "scope.userInfo": true,
+                     *   "scope.userLocation": true
+                     * }
+                     */
+                }
+            })
+        }
     },
     brandTelBnt:function(){
         this.setData({

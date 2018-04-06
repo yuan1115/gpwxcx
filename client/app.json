@@ -1,9 +1,10 @@
 {
     "pages":[
+        "pages/user/user",
+        
         "pages/index/index",
         "pages/find/find",
         "pages/article/article",
-        "pages/user/user",
         "pages/newsList/newsList",
         "pages/detail/detail",        
         "pages/search/search",

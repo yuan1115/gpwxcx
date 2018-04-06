@@ -21,7 +21,12 @@ Page({
         alert : 0,
         news: [],
         comments : [],
-        toTop : 0
+        toTop : 0,
+        a : 0,
+        b : 0,
+        c : 0,
+        code : 0,
+        bindtelshow : 0
     },
 
     /**
@@ -142,5 +147,23 @@ Page({
         this.setData({
             toTop: toTop
         })
+    },
+    /**
+     *验证码 
+     */
+    code:function(){
+        this.setData({
+            a: Math.ceil(Math.random() * 20),
+            b : Math.ceil(Math.random() * 20),
+            code : 1
+        })
+    },
+    /**
+     * 提交评论 
+     */
+    bindFormSubmit:function(e){
+        if(e.detail.value.c = this.data.a+this.data.b){
+            
+        }
     }
 })
