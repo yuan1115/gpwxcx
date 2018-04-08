@@ -27,25 +27,28 @@ swiper{height:440rpx;}
   line-height: 42rpx
 }
 .nav{
-  /* margin: 20rpx 0; */
   font-size: 32rpx;
-  border-bottom:1px solid #f6f6f6;
+  height: 120rpx;
+  white-space: nowrap;
+  line-height: 100rpx;
+}
+.classname{
+  height: 120rpx;
+  position: fixed;
+  top:0;
+  width: 100%;
+  border-bottom:1px solid #669999;
+  background:#fff;
+  z-index: 999 ;
+  color: #666999;
+  line-height: 100rpx;
+  
 }
 .hot{
-  float: left;
-  width: 25%;
-  text-align: center;
-  padding:13rpx 0;
-}
-.nav .active{
-    color: #669ef9;
-    padding:10rpx 15rpx;
-    border-bottom:1px solid #669ef9;
-    border-top:1px solid #669ef9;
-    border-top-left-radius: 10rpx;
-    border-top-right-radius: 10rpx;
-    border-bottom-left-radius: 10rpx;
-    border-bottom-right-radius: 10rpx;
+   display: inline-block;
+   width: 25%;
+   text-align: center;
+   padding:13rpx 0;
 }
 .cate{
    border-top:1px solid #f6f6f6;

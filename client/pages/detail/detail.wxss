@@ -11,13 +11,13 @@ textarea{border: 1px #ddd solid;width: 94%;margin: 0 auto;padding:10rpx 20rpx;he
 .comment-middle{font-size: 28rpx;padding:15rpx 20rpx;border:1px #ddd solid;border-top: 0;background: #f7f7f7}
 .comment-middle icon{margin-right: 20rpx;color: #ddd;font-size:32rpx;}
 .comment-middle text{color: #4285f4}
-button{float: right;font-size:28rpx;height:auto;border:0;background:#4285f4;border-radius: 10rpx;color: #fff;line-height: 60rpx;}
+.comment-part button{float: right;font-size:28rpx;height:auto;border:0;background:#4285f4;border-radius: 10rpx;color: #fff;line-height: 60rpx;}
 .newComment{font-size: 30rpx;color: #333;margin-bottom:30rpx;}
 .times{font-size:26rpx;color: #999;margin-left:20rpx}
 .commentContent{font-size: 28rpx;line-height: 40rpx;color: #777;margin-top:10rpx;text-indent: 56rpx}
 .cate{padding-top:5rpx}
-.code{background:#f6f6f6;padding:20rpx}
-.code .title{font-size:30rpx;color: #666;margin-bottom: 20rpx}
-.code text{padding: 0 10rpx;}
-.codemsg view{float: left;width:auto}
-.code input{width:100rpx;float: left;text-align: center;border: 1px #669ef9 solid}
+.comment-part .code{background:#f6f6f6;padding:20rpx}
+.comment-part .code .title{font-size:30rpx;color: #666;margin-bottom: 20rpx}
+.comment-part .code text{padding: 0 10rpx;}
+.comment-part .codemsg view{float: left;width:auto}
+.comment-part .code input{width:100rpx;float: left;text-align: center;border: 1px #669ef9 solid}

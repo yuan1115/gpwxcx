@@ -12,20 +12,12 @@ Page({
     duration: 1000,        //滑动间隔时间   
     circular: true,         //衔接是否
     scroll : "cate0",
-    index_is_show: 0
-  },
-  //热词导航
-  hotList:function(e){
-    var scroll = e.currentTarget.dataset.id
-    if (scroll != this.data.scroll){
-      this.setData({
-        scroll: scroll
-      })
-    }
+    index_is_show: 0,
+    height:'',
   },
   /**
- * 生命周期函数--监听页面加载
- */
+  * 生命周期函数--监听页面加载
+  */
   onLoad: function (options) {
     var url = "indexData?adminSrcKey=YWRtaW5faGVsbG8="
     var that = this
@@ -70,7 +62,14 @@ Page({
   /**
    * 滚动
    */
-  scroll:function(e){
-      console.log(e)
-  }
+  onPageScroll: function (e) {
+      if (e.scrollTop>200){
+          var classname = "classname"
+      }else{
+          var classname = ''
+      }
+      this.setData({
+          classname : classname
+      })
+  },
 })

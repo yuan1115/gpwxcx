@@ -39,8 +39,8 @@
         </view>
     </view>
     <view class='line' bindtap='toAbout'>
-        关于我们
-        <icon class='fa fa-angle-right'></icon>
+        <text>关于我们</text> 
+        <text class='fa fa-angle-right'></text>
     </view>
 </view>
 <import src="../../template/bindTel.wxml"/>  

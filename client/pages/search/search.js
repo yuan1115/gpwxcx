@@ -87,6 +87,9 @@ Page({
   //历史搜索
   historysel: function (e) {
       var key = e.currentTarget.dataset.key
+      this.setData({
+          news: []
+      })
       this.getData(key)
   },
   removekey: function () {
@@ -123,6 +126,7 @@ Page({
           key: key,
           page : 1,
           pages : 0,
+          news : []
       })
     //请求数据
     this.getData(key)

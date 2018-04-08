@@ -12,18 +12,14 @@
       </swiper-item>
     </block>
   </swiper>
-  <view style="height:25rpx"></view>
   <!-- 热点词汇 -->
-  <view class="nav">
-    <block wx:for="{{nav_menu}}" wx:key="hot">
-       <view class="hot" bindtap='hotList' data-id='cate{{index}}'>
-          <text class="{{scroll=='cate'+index?'active':''}}">{{item.post_title}}</text>
-       </view> 
+  <scroll-view class="nav {{classname}}" scroll-x >
+    <block wx:for="{{nav_menu}}" wx:key="nav">
+        <view class="hot" bindtap='list' data-id="{{item.term_id}}"><text>{{item.post_title}}</text></view>
     </block>
-    <view class='clear'></view>
-  </view>
+  </scroll-view>
   <!-- 分类资讯 -->
-  <scroll-view scroll-y style="height:1000rpx" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{scroll}}" scroll-top="0">
+  <scroll-view scroll-y style="height:{{height}}rpx" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-into-view="{{scroll}}" scroll-top="0">
     <block wx:for="{{nav_menu}}" wx:key="cateNews">
       <view class='cate' id="cate{{index}}">
           <view class='cateName' bindtap='newsList'>

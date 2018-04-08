@@ -2,18 +2,18 @@
 <template name="newsList">
     <block wx:for="{{news}}" wx:key="newsList" wx:for-item="newsList">
         <view class='news' bindtap='newsDetail' data-id='{{newsList.id}}'>
-            <view class='content'>
-            <view>
-                <view class='mintroduce'>{{newsList.post_title}}</view>
-                <!-- <view class='mintroduce'></view> -->
+            <view class="{{newsList.imgUrl!=0?'content':'contents'}}">
+                <view>
+                    <view class='mintroduce'>{{newsList.post_title}}</view>
+                    <!-- <view class='mintroduce'></view> -->
+                </view>
+                <view class='bottom'>
+                    <text>{{newsList.post_date}}</text>
+                    <text class='detail'>详情</text>
+                </view>
             </view>
-            <view class='bottom'>
-                <text>{{newsList.post_date}}</text>
-                <text class='detail'>详情</text>
-            </view>
-            </view>
-            <view class='img'>
-            <image src='{{newsList.imgUrl}}'></image>
+            <view class='img' hidden="{{newsList.imgUrl!=0?false:true}}">
+                <image src='{{newsList.imgUrl}}'></image>
             </view>
         </view>
     </block>

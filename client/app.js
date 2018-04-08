@@ -5,8 +5,6 @@ var util = require("utils/util.js")
 App({
     globalData: {
         userInfo: null,
-        openid: -1,
-        session_key: "",
     },
     onLaunch: function () {
         var that = this
@@ -14,10 +12,9 @@ App({
         wx.login({
             success: function (res) {
                 if (res.code) {
-                    // that.getOpenid(res.code, function (e) {
-                    //     that.globalData.openid = e.openid
-                    //     that.globalData.session_key = e.session_key
-                    // })
+                    that.getOpenid(res.code, function (e) {
+                        wx.setStorageSync("userSrc",e.data)
+                    })
                 } else {
                     console.log('获取用户登录态失败！' + res.errMsg)
                 }
@@ -55,7 +52,7 @@ App({
         } 
         alert.wxload({title:'加载中...'},function(){})
         wx.request({
-            url: 'http://127.0.0.1/rycs/gpwApi/index/' + pdata.url,
+            url: 'http://192.168.2.165/rycs/gpwApi/index/' + pdata.url,
             method: pdata.method ? pdata.method : "GET",
             data: postdata,
             header: {
@@ -68,9 +65,10 @@ App({
     },
     //获取openid
     getOpenid: function (code, callback) {
-        var url = "WxApi/getOpenid"
+        var url = "getOpenid?adminSrcKey=YWRtaW5faGVsbG8="
         var data = { code: code }
         this.ajax({ url: url, method: "POST", data: data }, function (res) {
+            wx.hideLoading()
             callback(res)
         })
     },
