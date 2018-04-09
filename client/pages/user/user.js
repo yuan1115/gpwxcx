@@ -1,5 +1,6 @@
 // pages/user/user.js
 const app = getApp()
+const util = require('../../utils/util.js');
 Page({
 
     /**
@@ -9,6 +10,7 @@ Page({
         brandTelBnt: 0,  //绑定手机号按钮
         isBrandTel : 0,  //是否绑定手机号
         userInfo : '',
+        gpwUserInfo:'',
         hasUserInfo :false
     },
 
@@ -30,6 +32,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var that = this
         //微信信息 
         if (app.globalData.userInfo) {
             this.setData({
@@ -57,6 +60,13 @@ Page({
                 }
             })
         }
+        app.userinfo(function(res){
+            if(res.status==200){
+                that.setData({
+                    gpwUserInfo : res.data
+                })
+            }
+        })
     },
 
     /**
@@ -123,6 +133,21 @@ Page({
     toAbout:function(){
         wx.navigateTo({
             url: '../about/about',
+        })
+    },
+     /**
+     *快速绑定手机号 
+     */
+    brandTel: function (e) {
+        app.quickBrandTel(e, function (res) {
+            if (res.status == 200) {
+                that.setData({
+                    gpwUserInfo: res.data
+                })
+                util.showSuccess("绑定成功")
+            } else {
+                util.showModel("提示", "绑定失败，请重试！")
+            }
         })
     }
 })

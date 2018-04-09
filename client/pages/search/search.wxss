@@ -6,7 +6,7 @@
 .nav input{float: left;width:80%;height:1.7rem;line-height: 1.7rem}
 .qx{font-size:28rpx;background: #fff;padding:0 20rpx;height:1.8rem;float: left;background: #f9f9f9;border-radius:20rpx;margin-left:20rpx;line-height: 1.8rem}
 button::after{content:"";transform:scale(0)}
-.sous{padding:0;font-size:28rpx;width:110rpx;height:1.8rem;line-height: 1.8rem;margin: 0;border:1px solid #ddd;border-radius: 0;border-top-right-radius:0.9rem;background: #efefef;float: left;border-bottom-right-radius:0.9rem;} 
+.sous{padding:0;font-size:28rpx;width:110rpx;height:2rem;line-height: 2rem;margin: 0;border:1px solid #ddd;border-radius: 0;border-top-right-radius:0.9rem;background: #efefef;float: left;border-bottom-right-radius:0.9rem;} 
 
 .history{padding: 20rpx;}
 .history .top text{color:#dd2727;float: right;background: none}

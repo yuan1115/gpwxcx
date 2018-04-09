@@ -9,7 +9,7 @@
         </view>
         <view style="margin-top:10rpx">{{userInfo.nickName}}</view>
     </view>
-    <view class='tips'>
+    <view class='tips' hidden="{{gpwUserInfo?true:false}}">
         <text class='left'>找不到我参与过的文章？绑定手机号码试试吧！</text>
         <text class='right' bindtap='brandTelBnt'>绑定</text>
     </view>
@@ -38,9 +38,19 @@
             <view>我的收藏</view>  
         </view>
     </view>
+    <view class='line'>
+        <text class='left'>我的手机</text> 
+        <!-- <text class='right fa fa-angle-right'></text>         -->
+        <text class='right' style='margin-right:20rpx'>{{gpwUserInfo.user_login}}</text>
+    </view>
+    <view class='line'>
+        <text class='left'>我的邮箱</text>
+        <!-- <text class='right fa fa-angle-right'></text>          -->
+        <text class='right' style='margin-right:20rpx'>{{gpwUserInfo.user_email}}</text>
+    </view>
     <view class='line' bindtap='toAbout'>
-        <text>关于我们</text> 
-        <text class='fa fa-angle-right'></text>
+        <text class='left'>关于我们</text> 
+        <text class='right fa fa-angle-right'></text>
     </view>
 </view>
 <import src="../../template/bindTel.wxml"/>  

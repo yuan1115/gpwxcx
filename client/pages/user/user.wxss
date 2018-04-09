@@ -64,7 +64,7 @@ page{background: #f6f6f6}
     color: #669ef9;
 }
 .my{
-    font-size: 28rpx;
+    font-size: 30rpx;
     background: #fff;
     margin-bottom: 25rpx
 }
@@ -72,7 +72,7 @@ page{background: #f6f6f6}
     padding:25rpx 20rpx;
     border-bottom:1px #f6f6f6 solid; 
     background: #fff;
-    font-size: 28rpx
+    font-size: 30rpx;
 }
 .fa-angle-right{float: right}
 .line text{
@@ -89,3 +89,4 @@ page{background: #f6f6f6}
     color: #666999;
     margin-bottom: 20rpx;
 }
+.right{float: right}

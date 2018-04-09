@@ -52,7 +52,7 @@ App({
         } 
         alert.wxload({title:'加载中...'},function(){})
         wx.request({
-            url: 'http://192.168.2.165/rycs/gpwApi/index/' + pdata.url,
+            url: 'http://192.16.16.91/rycs/gpwApi/index/' + pdata.url,
             method: pdata.method ? pdata.method : "GET",
             data: postdata,
             header: {
@@ -89,6 +89,33 @@ App({
                     }
                 })
             }
+        })
+    },
+    /**
+     *公共底部数据 
+     */
+    footerData:function(){
+        
+    },
+    /**
+     *根据openid获取用户信息 
+     */
+    userinfo:function(callback){
+        var url = "getUserInfo?adminSrcKey=YWRtaW5faGVsbG8=&openid=" + wx.getStorageSync("userSrc").openid
+        this.ajax({url:url},function(res){
+            wx.hideLoading()
+            callback(res)
+        })
+    },
+    /** 
+     *快速绑定手机号码 
+     */
+    quickBrandTel:function(e,callback){
+        var data = { session_key: wx.getStorageSync("userSrc").session_key, encryptedData: e.detail.encryptedData, iv: e.detail.iv, openid: wx.getStorageSync("userSrc").openid}
+        var url = "brandTel?adminSrcKey=YWRtaW5faGVsbG8="
+        this.ajax({url:url,method:"POST",data:data},function(res){
+            wx.hideLoading()
+            callback(res)
         })
     }
 })

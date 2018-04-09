@@ -204,7 +204,7 @@ Page({
         if(e.detail.value.c == this.data.a+this.data.b){
             app.checksession()
             var data = {
-                commentContens:e.detail.value.textarea,
+                commentContents:e.detail.value.textarea,
                 openid: wx.getStorageSync( 'userSrc' ).openid,  
             }
             var url = "commitComments?adminSrcKey=YWRtaW5faGVsbG8=&article_id="+this.data.article_id
@@ -219,6 +219,7 @@ Page({
                         style : '',
                         isable : ''
                     })
+                    util.showSuccess("提交成功")
                 }else if(res.status==500){
                     util.showModel("提示","今天已经达到评论上线")
                 }else{
@@ -226,16 +227,31 @@ Page({
                 }
             })
         }else{
-            util.showModel("error","验证码不正确")
+            util.showModel("提示","验证码不正确")
             this.code()
         }
     },
     /**
      * 绑定手机号显示
      */
-     brandTelBnt: function () {
+    brandTelBnt: function () {
         this.setData({
             brandTelBnt: !this.data.brandTelBnt
         })
     },
+    /**
+     *快速绑定手机号 
+     */
+    brandTel:function(e){
+        app.quickBrandTel(e,function(res){
+            if(res.status==200){
+                that.setData({
+                    userinfo : res.data
+                })
+                util.showSuccess("绑定成功")
+            }else{
+                 util.showModel("提示","绑定失败，请重试！")                
+            }
+        })
+    }
 })
