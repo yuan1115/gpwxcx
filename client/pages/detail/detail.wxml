@@ -76,7 +76,7 @@
     </view>
     <!-- 公共底部 -->
     <import src="../../template/footer.wxml"/>  
-    <template is="footer" data="{{footer}}"/>
+    <template is="footer" data="{{...footer}}"/>
 </view>
 <view class='kf' hidden='{{alert?false:true}}'>
     <view class="form">

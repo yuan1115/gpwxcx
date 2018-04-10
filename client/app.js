@@ -13,6 +13,7 @@ App({
             success: function (res) {
                 if (res.code) {
                     that.getOpenid(res.code, function (e) {
+                        console.log(e)
                         wx.setStorageSync("userSrc",e.data)
                     })
                 } else {
@@ -40,6 +41,7 @@ App({
                 }
             }
         })
+        this.getFooter()
     },
     //ajax发送
     ajax: function (pdata = { url: url, method: "", data: data }, callback) {
@@ -92,12 +94,6 @@ App({
         })
     },
     /**
-     *公共底部数据 
-     */
-    footerData:function(){
-        
-    },
-    /**
      *根据openid获取用户信息 
      */
     userinfo:function(callback){
@@ -116,6 +112,17 @@ App({
         this.ajax({url:url,method:"POST",data:data},function(res){
             wx.hideLoading()
             callback(res)
+        })
+    },
+    /**
+     * 获取公共底部数据
+     */
+    getFooter: function () {
+        var url = "getFooter?adminSrcKey=YWRtaW5faGVsbG8="
+        this.ajax({ url: url}, function (res) {
+            console.log(res)
+            wx.setStorageSync("webInfo", res.data)
+            wx.hideLoading()
         })
     }
 })

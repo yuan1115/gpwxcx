@@ -16,6 +16,7 @@ Page({
       pages: 0,
       page_is_show: 0,
       footerstyle: "position: fixed;bottom:0",
+      footer: wx.getStorageSync("webInfo")
   },
 
   /**

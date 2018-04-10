@@ -32,6 +32,6 @@
 </view>
 <view style="{{footerstyle}}">
     <import src="../../template/footer.wxml"/>  
-    <template is="footer" data="{{footer}}"/>
+    <template is="footer" data="{{...footer}}"/>
 </view>
 <image src='../../static/image/toTop.png' class='toTop' hidden='{{toTop?false:true}}' bindtap='toTop'></image>

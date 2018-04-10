@@ -32,7 +32,8 @@ Page({
         bindtelshow : 0,
         isable : '',
         style : '',
-        userinfo : ''
+        userinfo : '',
+        footer: wx.getStorageSync("webInfo")
     },
 
     /**
@@ -243,15 +244,20 @@ Page({
      *快速绑定手机号 
      */
     brandTel:function(e){
+        var that = this
         app.quickBrandTel(e,function(res){
+            console.log(res)
             if(res.status==200){
                 that.setData({
                     userinfo : res.data
                 })
                 util.showSuccess("绑定成功")
             }else{
-                 util.showModel("提示","绑定失败，请重试！")                
+                 util.showModel("提示",res.data.msg)                
             }
+            that.setData({
+                brandTelBnt : 0
+            })
         })
     }
 })

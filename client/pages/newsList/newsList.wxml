@@ -15,7 +15,7 @@
     </view>
     <view class='none' hidden='{{page_is_show?false:true}}'>没有了~~</view>
     <import src="../../template/footer.wxml"/>  
-    <template is="footer" data="{{footer}}"/>
+    <template is="footer" data="{{...footer}}"/>
 </view>
 <import src="../../template/qxalert.wxml"/>  
 <template is="qxalert" data="{{alert}}"/>

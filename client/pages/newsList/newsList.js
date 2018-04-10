@@ -16,7 +16,8 @@ Page({
         index_is_show : 0,
         nav:[],
         news: [],
-        toTop : 0
+        toTop : 0,
+        footer: wx.getStorageSync("webInfo")
   },
 
     /**

@@ -4,13 +4,15 @@
       <view class='sections'>
           <view>友情链接</view>
           <view class='yqlink'>
-              <view>新华网</view>
-              <view>人民网</view>
-              <view>手机评估网</view>
+          <block wx:for="{{link}}" wx:key="link">
+            <view class='link'>
+              <navigator url="../webUrl/webUrl?webUrl={{item.jumpurl}}">{{item.post_title}}</navigator>
+            </view>
+          </block>    
           </view>
       </view>
       <view class='bottom'>
-          Copyright © 2018 3ggpw.cn. All Rights Reserved. 手机股评网版权所有 湘ICP备08003812号
+      {{right}}
       </view>
   </view>
 </template>

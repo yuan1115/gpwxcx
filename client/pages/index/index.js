@@ -14,6 +14,7 @@ Page({
     scroll : "cate0",
     index_is_show: 0,
     height:'',
+    footer : wx.getStorageSync("webInfo")
   },
   /**
   * 生命周期函数--监听页面加载

@@ -6,6 +6,6 @@
         <template is="newsList" data="{{news}}"/>
     </view>
     <import src="../../template/footer.wxml"/>  
-    <template is="footer" data="{{footer}}"/>
+    <template is="footer" data="{{...footer}}"/>
 </view>
 

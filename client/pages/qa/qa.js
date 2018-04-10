@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      footer:wx.getStorageSync("webInfo"),
       news: [
           {
               title: "【严为民】55亿罚款吓傻游资！",
