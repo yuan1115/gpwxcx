@@ -2,8 +2,7 @@
  <!-- 引入资讯列表模板 -->
 <view class='content'>
     <view class='cate'>
-        <import src="../../template/newsList.wxml"/>  
-        <template is="newsList" data="{{news}}"/>
+        活动正在筹办中，敬请期待！！！        
     </view>
     <import src="../../template/footer.wxml"/>  
     <template is="footer" data="{{...footer}}"/>

@@ -23,11 +23,19 @@ Page({
     var url = "indexData?adminSrcKey=YWRtaW5faGVsbG8="
     var that = this
     app.ajax({url:url},function(e){
+      var attr = []
       if(e.status==200){
+        // for (var i in e.data.nav_menu){
+        //   var count = e.data.nav_menu[i]['news']['length']
+        //   for(var j=0;j<count;j++){
+        //     WxParse.wxParse('article' + e.data.nav_menu[i]['news'][j]['id'], 'html', e.data.nav_menu[i]['news'][j]['post_title'], that);
+        //   }
+        // }
         that.setData({
           imgUrls : e.data.index_banner,
           nav_menu: e.data.nav_menu,
-          index_is_show : 1
+          index_is_show : 1,
+          footer: wx.getStorageSync("webInfo")
         })
       }else{
         that.qx()

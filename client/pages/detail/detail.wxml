@@ -6,7 +6,7 @@
         <view class='excerpt'>{{newsdetail.post_excerpt}}</view>
         <view class="article">
             <import src="../../vendor/wxParse/wxParse.wxml"/>
-             <template is="wxParse" data="{{wxParseData:article.nodes}}"/> 
+              <template is="wxParse" data="{{wxParseData:article.nodes}}"/>  
         </view>
     </view>
     <view class='comment-part'>

@@ -1,4 +1,7 @@
 <!--pages/about/about.wxml-->
 <view class='content'>
-    网站介绍，加盟，广告投放
+    <view class="article">
+          <import src="../../vendor/wxParse/wxParse.wxml"/>
+          <template is="wxParse" data="{{wxParseData:article.nodes}}"/>  
+    </view>
 </view>

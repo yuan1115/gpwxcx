@@ -37,11 +37,12 @@ Page({
             that.setData({
                 nav : res.data.category,
                 index_is_show : 1 ,
-                id: id
+                id: id,
+                footer: wx.getStorageSync("webInfo")
             })
             that.getData(id)                                
             wx.setNavigationBarTitle({
-                title: res.data.name
+                title: res.data.name, 
             })
             wx.hideLoading()
         })

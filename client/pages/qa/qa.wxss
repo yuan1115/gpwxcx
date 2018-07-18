@@ -1,1 +1,4 @@
 /* pages/qa/qa.wxss */
+.content{min-height: 100%}
+.cate{min-height: 50%;color: #666;text-align: center}
+ .footer{position: fixed;bottom: 0;} 

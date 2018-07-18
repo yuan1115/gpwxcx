@@ -4,7 +4,13 @@
         <view class='news' bindtap='newsDetail' data-id='{{newsList.id}}'>
             <view class="{{newsList.imgUrl!=0?'content':'contents'}}">
                 <view>
-                    <view class='mintroduce'>{{newsList.post_title}}</view>
+                    <view class='mintroduce'>
+                       <!-- <view class="article{{newsList.id}}">
+                          <import src="../vendor/wxParse/wxParse.wxml"/>
+                          <template is="wxParse" data="{{wxParseData:article+newsList.id.nodes}}"/>  
+                      </view>  -->
+                      {{newsList.post_title}}  
+                    </view>
                     <!-- <view class='mintroduce'></view> -->
                 </view>
                 <view class='bottom'>

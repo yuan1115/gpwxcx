@@ -3,9 +3,19 @@
     <view class="userinfo">
         <view class='userinfo-top'></view>
         <view class='click'>
-            <button bindtap='setting'>
-                <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+          <block wx:if="{{userInfo}}">
+            <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+          </block>
+          <block wx:if="{{!userInfo}}">
+            <button bindtap='setting' open-type='getUserInfo' bindgetuserinfo="onGotUserInfo" >
+                <image class="userinfo-avatar" src="../../static/image/me.png" ></image>
             </button>
+          </block>
+        </view>
+        <view hidden="{{userInfo?true:false}}">
+          <button open-type='getUserInfo' bindgetuserinfo="onGotUserInfo" style='font-size:30rpx;width:auto;padding:5rpx 20rpx;border:1px solid #669ef9;border-radius:10rpx;height:auto;background:#669ef9;color:#fff;margin-top:20rpx'>
+            微信授权
+          </button>
         </view>
         <view style="margin-top:10rpx">{{userInfo.nickName}}</view>
     </view>
@@ -17,10 +27,10 @@
         <view class='line'>
             <text>我参与的文章</text>
         </view>
-        <view class='lines' bindtap='toArticle' data-id="1">
+        <!-- <view class='lines' bindtap='toArticle' data-id="1">
             <icon class='fa fa-book'></icon>
             <view>我的转发</view>  
-        </view>
+        </view> -->
         <!-- <view class='lines' bindtap='toArticle' data-id="2">
             <icon class='fa fa-question'></icon>
             <view>我的问答</view> 
@@ -43,11 +53,11 @@
         <!-- <text class='right fa fa-angle-right'></text>         -->
         <text class='right' style='margin-right:20rpx'>{{gpwUserInfo.user_login}}</text>
     </view>
-    <view class='line'>
+    <!-- <view class='line'>
         <text class='left'>我的邮箱</text>
-        <!-- <text class='right fa fa-angle-right'></text>          -->
+         <text class='right fa fa-angle-right'></text>          
         <text class='right' style='margin-right:20rpx'>{{gpwUserInfo.user_email}}</text>
-    </view>
+    </view> -->
     <view class='line' bindtap='toAbout'>
         <text class='left'>关于我们</text> 
         <text class='right fa fa-angle-right'></text>

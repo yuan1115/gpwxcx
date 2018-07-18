@@ -40,6 +40,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(wx.getStorageSync("Zf"))
         var article_id = options.id ? options.id : this.data.article_id
         var data = {
             comments:{listRows: 5,page : 1},
@@ -50,7 +51,7 @@ Page({
         var url = "articleDetail?adminSrcKey=YWRtaW5faGVsbG8=&article_id=" + article_id
         app.ajax({ url: url , method: "POST", data: data }, function(backdata){
             wx.hideLoading()  
-            console.log(backdata)                      
+            // console.log(backdata)                      
             if(backdata.status==200){
                 var article = backdata.data.article.post_content;
                 WxParse.wxParse('article', 'html', article, that, 5)
@@ -116,8 +117,34 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function (res) {
+        var that = this
+        return {
+            title: this.data.newsdetail.post_title,
+            path: '/pages/detail/detail?id=' + this.data.newsdetail.id + "&openid=" + wx.getStorageSync("userSrc").openid,
+            // 转发成功
+            success: function (res) {
+                // var share = wx.getStorageSync("share")
+                // var id = that.data.newsdetail.id
+                // var newshare = []
+                // if(action.count(share)==0){
+                //     newshare[0] = id 
+                // }else{
+                //     for(var i = action.count(share);i>=0;i--){
+                //         if(i==action.count(share)){
+                //             newshare[0] = id
+                //         }else{
+                //             if(share[i]!=id){
 
+                //             }
+                //         }
+                //     }
+                // }   
+            },
+            fail: function (res) {
+                // 转发失败
+            }
+        }
     },
     /**
      * 跳转到新闻详情
@@ -212,7 +239,7 @@ Page({
             var that = this
             app.ajax({url:url,method:'POST',data:data},function(res){
                 wx.hideLoading()
-                console.log(res)
+                // console.log(res)
                 if(res.status==200){
                     that.setData({
                         comments: res.data,
@@ -246,7 +273,7 @@ Page({
     brandTel:function(e){
         var that = this
         app.quickBrandTel(e,function(res){
-            console.log(res)
+            // console.log(res)
             if(res.status==200){
                 that.setData({
                     userinfo : res.data
