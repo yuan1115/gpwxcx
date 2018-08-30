@@ -34,7 +34,7 @@ App({
         } 
         alert.wxload({title:'加载中...'},function(){})
         wx.request({
-            url: 'https://api.3ggpw.cn/Api/Index/' + pdata.url,
+            url: 'https://xxx.xxx.com/Api/Index/' + pdata.url,
             method: pdata.method ? pdata.method : "GET",
             data: postdata,
             header: {
